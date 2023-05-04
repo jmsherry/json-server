@@ -549,18 +549,24 @@ describe('Server', () => {
   describe('PUT /:resource/:id', () => {
     test('should respond with json and replace resource', async () => {
       const post = { id: 1, booleanValue: true, integerValue: 1 }
+      const merged = {
+        id: 1,
+        body: 'foo',
+        booleanValue: true,
+        integerValue: 1,
+      }
       const res = await request(server)
         .put('/posts/1')
         .set('Accept', 'application/json')
         // body property omitted to test that the resource is replaced
         .send(post)
         .expect('Content-Type', /json/)
-        .expect(200, post)
+        .expect(200, merged)
       // TODO find a "supertest" way to test this
       // https://github.com/typicode/json-server/issues/396
-      assert.deepStrictEqual(res.body, post)
+      assert.deepStrictEqual(res.body, merged)
       // assert it was created in database too
-      assert.deepStrictEqual(db.posts[0], post)
+      assert.deepStrictEqual(db.posts[0], merged)
     })
 
     test('should respond with 404 if resource is not found', () =>

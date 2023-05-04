@@ -284,10 +284,7 @@ module.exports = (db, name, opts) => {
     } else {
       let chain = db.get(name)
 
-      chain =
-        req.method === 'PATCH'
-          ? chain.updateById(id, req.body)
-          : chain.replaceById(id, req.body)
+      chain = chain.updateById(id, req.body)
 
       resource = chain.value()
     }
