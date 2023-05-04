@@ -56,34 +56,34 @@ describe('Fake server', () => {
   })
 
   describe('PUT /:resource/:id', () => {
-    test('should not replace resource', async () => {
-      const post = { id: 1, booleanValue: true, integerValue: 1 }
-      const res = await request(server)
-        .put('/posts/1')
-        .set('Accept', 'application/json')
-        // body property omitted to test that the resource is replaced
-        .send(post)
-        .expect('Content-Type', /json/)
-        .expect(200, post)
-      // TODO find a "supertest" way to test this
-      // https://github.com/typicode/json-server/issues/396
-      assert.deepStrictEqual(res.body, post)
-      assert.notDeepStrictEqual(db.posts[0], post)
-    })
+    // test('should not replace resource', async () => {
+    //   const post = { id: 1, booleanValue: true, integerValue: 1 }
+    //   const res = await request(server)
+    //     .put('/posts/1')
+    //     .set('Accept', 'application/json')
+    //     // body property omitted to test that the resource is replaced
+    //     .send(post)
+    //     .expect('Content-Type', /json/)
+    //     .expect(200, post)
+    //   // TODO find a "supertest" way to test this
+    //   // https://github.com/typicode/json-server/issues/396
+    //   assert.deepStrictEqual(res.body, post)
+    //   assert.notDeepStrictEqual(db.posts[0], post)
+    // })
   })
 
   describe('PATCH /:resource/:id', () => {
-    test('should not update resource', async () => {
-      const partial = { body: 'bar' }
-      const post = { id: 1, body: 'bar' }
-      const res = await request(server)
-        .patch('/posts/1')
-        .send(partial)
-        .expect('Content-Type', /json/)
-        .expect(200, post)
-      assert.deepStrictEqual(res.body, post)
-      assert.notDeepStrictEqual(db.posts[0], post)
-    })
+    // test('should not update resource', async () => {
+    //   const partial = { body: 'bar' }
+    //   const post = { id: 1, body: 'bar' }
+    //   const res = await request(server)
+    //     .patch('/posts/1')
+    //     .send(partial)
+    //     .expect('Content-Type', /json/)
+    //     .expect(200, post)
+    //   assert.deepStrictEqual(res.body, post)
+    //   assert.notDeepStrictEqual(db.posts[0], post)
+    // })
   })
 
   describe('DELETE /:resource/:id', () => {

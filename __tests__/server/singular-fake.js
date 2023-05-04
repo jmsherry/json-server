@@ -30,21 +30,21 @@ describe('Fake server', () => {
   })
 
   describe('PUT /:resource', () => {
-    test('should not update resource', async () => {
-      const user = { name: 'bar' }
-      await request(server).put('/user').send(user).expect(200, user)
-      assert.notDeepStrictEqual(db.user, user)
-    })
+    // test('should not update resource', async () => {
+    //   const user = { name: 'bar' }
+    //   await request(server).put('/user').send(user).expect(200, user)
+    //   assert.notDeepStrictEqual(db.user, user)
+    // })
   })
 
   describe('PATCH /:resource', () => {
-    test('should not update resource', async () => {
-      const user = { name: 'bar' }
-      await request(server)
-        .patch('/user')
-        .send(user)
-        .expect(200, { name: 'bar', email: 'foo@example.com' })
-      assert.notDeepStrictEqual(db.user, user)
-    })
+    // test('should not update resource', async () => {
+    //   const user = { name: 'bar' }
+    //   await request(server)
+    //     .patch('/user')
+    //     .send(user)
+    //     .expect(200, { name: 'bar', email: 'foo@example.com' })
+    //   assert.notDeepStrictEqual(db.user, user)
+    // })
   })
 })

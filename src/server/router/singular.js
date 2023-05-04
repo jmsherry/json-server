@@ -29,13 +29,9 @@ module.exports = (db, name, opts) => {
 
   function update(req, res, next) {
     if (opts._isFake) {
-//       if (req.method === 'PUT') {
-//         res.locals.data = req.body
-//       } else {
-        const resource = db.get(name).value()
-        const {_id, id, ...updates} = req.body;
-        res.locals.data = { ...resource, ...updates }
-//       }
+      const resource = db.get(name).value()
+      const { _id, id: i, ...updates } = req.body
+      res.locals.data = { ...resource, ...updates }
     } else {
       if (req.method === 'PUT') {
         db.set(name, req.body).value()
