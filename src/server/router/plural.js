@@ -279,12 +279,8 @@ module.exports = (db, name, opts) => {
 
     if (opts._isFake) {
       resource = db.get(name).getById(id).value()
-
-      if (req.method === 'PATCH') {
-        resource = { ...resource, ...req.body }
-      } else {
-        resource = { ...req.body, id: resource.id }
-      }
+      const {_id, id, ...updates} = req.body;
+      resource = { ...updates, id: resource.id }
     } else {
       let chain = db.get(name)
 
