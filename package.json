@@ -1,5 +1,5 @@
 {
-  "name": "json-server",
+  "name": "jump-json-server",
   "version": "0.17.3",
   "description": "Get a full fake REST API with zero coding in less than 30 seconds",
   "main": "./lib/server/index.js",
@@ -69,7 +69,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/typicode/json-server.git"
+    "url": "git://github.com/jmsherry/json-server.git"
   },
   "keywords": [
     "JSON",
@@ -87,12 +87,12 @@
     "dummy",
     "sandbox"
   ],
-  "author": "Typicode <typicode@gmail.com>",
+  "author": "James Sherry <jmsherry@thejump.tech>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/typicode/json-server/issues"
+    "url": "https://github.com/jmsherry/json-server/issues"
   },
-  "homepage": "https://github.com/typicode/json-server",
+  "homepage": "https://github.com/jmsherry/json-server",
   "engines": {
     "node": ">=12"
   },
